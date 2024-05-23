@@ -1,0 +1,805 @@
+@charset "UTF-8";
+/* CSS Document */
+
+:lang(cn) {
+    font-family: STKaiti, SimHei, Microsoft Yahei, FangSong;
+}
+/*body,h1,h2,h3,h4,h5,h6 {font-family: "Titillium Web", sans-serif !important;}*/
+body,h1,h2,h3,h4,h5,h6 {font-family: 'Noto Sans', sans-serif !important;}
+
+body {
+    font-family: georgia,serif;
+    font-size: 15px;
+    line-height: 1.3;
+    text-align: justify;
+}
+
+img {
+    width: 100%;
+    margin: 0;
+}
+
+h2,h4,h5 {
+    font-family: 'Titillium Web', sans-serif;
+    font-weight: bold;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+/*Susan customized color*/
+.hj-white,
+.hj-hover-white:hover {
+    color: #000!important;
+    background-color: #fefefe!important
+}
+
+a:link {background: none; text-decoration: none; cursor: pointer;}
+/*A:visited {background: none; color: #D9661F; text-decoration: none; cursor: pointer;}*/
+a:hover {background: none; color: #706e6d; text-decoration: none; cursor: pointer; border-bottom: 1px dotted black;}
+/*A:active { background: none; color: #FDB515; background: none; cursor: pointer;}*/
+
+.centred {
+    position: relative;
+    top: 10%;
+    transform: translate(0%, 20%);
+}
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  /*width: 50%;*/
+  text-align: center;
+}
+
+.left-float {
+    display: block;
+    margin: 0 5%;
+    text-align: left;
+}
+.w3-margin-xleft {
+    margin: 32px!important;
+}
+.hj-padding {
+    padding: 0.01em 16px;
+}
+@media (min-width: 48em) {
+    .hj-padding {
+        padding: 8px 16px !important;
+    }
+}
+
+.video-container {
+    width: 100%;
+    position: relative;
+    padding: 0;
+}
+.video-item {
+    width: 100%;
+}
+.video{
+    position:relative;
+    padding-bottom:56.25%;
+    height:0;
+    overflow:hidden
+}
+
+.video iframe, .video video{
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    border:0}
+
+
+code{padding:0 4px;
+    font-family:ia writer mono s,monospace;
+    font-size:.9em;
+    border:1px solid #c8c8c8;}
+
+pre code{
+    display:block;
+    margin:0;
+    border:none;
+    background-color:transparent;
+    cursor:text;
+    overflow-x:auto
+}
+
+/*Susan: new container for tools*/
+.tooltip-container {
+    text-align: center;
+    padding: 0.01em 16px;
+    margin-top: 16px;
+    margin-bottom: 16px;
+    display: flex;
+    width: 100%;
+}
+.tooltip-container:after,
+.tooltip-container:before{
+    content: "";
+    display: table;
+    clear: both
+}
+.tooltiplogo-hover {
+    border-bottom: 1px dotted #fefefe;
+}
+.tooltip {
+  position: relative;
+
+    /*Susan: new container for tools*/
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  font-size: 10px;
+
+  color: #706e6d;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+  top: 100%;
+  /*left: 70%;*/
+  /*margin-left: -45%;*/
+
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+}
+
+
+.global {
+width: 900px;
+height: 100%;
+margin-left: auto;
+margin-right: auto;
+background: white;
+}
+
+.global TD {
+vertical-align: top;
+}
+
+.colleft {
+width: 250px;
+color: inherit;
+font: normal 14px georgia,serif;
+border-right: 1px dotted dimgray;
+}
+
+.colright {
+width: 600px;
+padding: 10px 20px 20px 20px;
+background: transparent;
+color: inherit;
+text-align: justify;
+font: normal 14px georgia,serif;
+}
+
+/*p {*/
+/*font: normal 14px*/
+/*}*/
+
+/*
+ * Global resets
+ *
+ * Update the foundational and global aspects of the page.
+ */
+
+html {
+    font-family: "PT Sans", Helvetica, Arial, sans-serif;
+}
+
+@media (min-width: 48em) {
+    html {
+        font-size: 16px;
+    }
+}
+@media (min-width: 58em) {
+    html {
+        font-size: 20px;
+    }
+}
+
+
+/*
+ * Sidebar
+ *
+ * Flexible banner for housing site name, intro, and "footer" content. Starts
+ * out above content in mobile and later moves to the side with wider viewports.
+ */
+
+.plate{
+    background: linear-gradient(to right,#e8e8e8  0%, #fefefe 100% );
+    /*border:2px;*/
+    border-radius:6px;
+    /*border-top-right-radius:20px;*/
+    /*border-top-left-radius:6px;*/
+    /*border-bottom-right-radius:40px;*/
+    /*border-bottom-left-radius:6px;"*/
+}
+
+.sidebar {
+    text-align: center;
+    padding: 2rem 1rem;
+    /*color: rgba(255,255,255,.5);*/
+    /*background-color: #202020;*/
+    box-shadow: 0 0 8px 2px rgba(0, 0, 0, .5);
+}
+@media (min-width: 39em) {
+    .sidebar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        width: 14rem;
+        text-align: left;
+    }
+}
+
+/* Sidebar links */
+.sidebar a {
+    color: #fff;
+}
+
+/* About section */
+.sidebar-about h1 {
+    color: #fff;
+    margin-top: 0;
+    font-family: "Abril Fatface", serif;
+    font-size: 3.25rem;
+}
+
+/* Sidebar nav */
+.sidebar-nav {
+    margin-bottom: 1rem;
+}
+.sidebar-nav-item {
+    display: block;
+    line-height: 1.75;
+}
+a.sidebar-nav-item:hover,
+a.sidebar-nav-item:focus {
+    text-decoration: underline;
+}
+.sidebar-nav-item.active {
+    font-weight: bold;
+}
+
+.nav-button {
+    background-color: #FF6600; /* Green */
+    border: none;
+    color: white;
+    padding: 5px 0;
+    width: 130px;
+    text-align: center;
+    text-decoration: none;
+    /*display: inline-block;*/
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    font-family: Arial, Serif;
+}
+
+.nav-button:hover {
+    box-shadow: 0 5px 5px 0 rgba(0,0,0,0.24), 0 5px 5px 0 rgba(0,0,0,0.19);
+}
+
+.news-year {
+    vertical-align: top;
+}
+
+.contact-title {
+    font-weight: bold;
+    padding-right: 0.2em;
+}
+
+/*susan*/
+.edu-figure-container {
+    text-align: center;
+    /*width: calc(10vw);*/
+}
+.edu-icon {
+    max-width: 100px;
+    max-height: 100px;
+}
+
+.tn-img {
+    max-width: 255px;
+    max-height: 255px;
+    width: 100%;
+    /*padding-right: 10px; 255px;*/
+}
+.tn-icon {
+    max-width: 58px;
+    max-height: 58px;
+    /*padding-right: 10px;*/
+}
+.title {
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.me {
+    /*color: #FF6600;*/
+    color: #3B7EA1;
+    font-weight: bold;
+}
+
+.pub a {
+    font-family: Arial, serif;
+    font-weight: bold;
+    /*margin-top: 5px;*/
+    padding: 0 0.2em;
+    border: solid cyan;
+    border-width: thick;
+    border-radius: 5px;
+    background-color: cyan;
+    /*border-style: solid;*/
+    /*border-color: black;*/
+    /*border-width: medium;*/
+}
+
+.link {
+    padding-top: 0.5em;
+    line-height: 1.7;
+}
+
+.journal {
+    line-height: 1.4;
+}
+
+.journal-title {
+    font-style: italic;
+}
+
+.journal-year {
+}
+
+.author {
+    padding: 0.2em 0;
+}
+
+/*.link a:link {color: #FF6600; text-decoration: none; cursor: pointer;}*/
+/*.link a:visited {color: #FF6600; text-decoration: none; cursor: pointer;}*/
+/*.link a:hover {color: #FF6600; text-decoration: none; cursor: pointer;}*/
+/*.link a:active { color: #FF6600; background: none; cursor: pointer;}*/
+.btn {
+
+}
+
+.btn.outline {
+    background: none;
+    padding: 1px 6px;
+    font-size: medium;
+}
+
+.btn.big-outline{
+    padding: 5px !important;
+}
+
+.btn-primary.outline {
+    border: 2px solid #3B7EA1;
+    color: #3B7EA1;
+}
+
+.btn-primary.outline:hover, .btn-primary.outline:focus, .btn-primary.outline:active, .btn-primary.outline.active, .open > .dropdown-toggle.btn-primary {
+    color: #33a6cc;
+    border-color: #33a6cc;
+}
+.btn-primary.outline:active, .btn-primary.outline.active {
+    border-color: #007299;
+    color: #007299;
+    box-shadow: none;
+}
+
+/* Sticky sidebar
+ *
+ * Add the `sidebar-sticky` class to the sidebar's container to affix it the
+ * contents to the bottom of the sidebar in tablets and up.
+ */
+
+@media (min-width: 48em) {
+    .sidebar-sticky {
+        position: absolute;
+        right:  1rem;
+        bottom: 1rem;
+        left:   1rem;
+    }
+}
+
+
+/* Container
+ *
+ * Align the contents of the site above the proper threshold with some margin-fu
+ * with a 25%-wide `.sidebar`.
+ */
+
+.content {
+    padding-top:    4rem;
+    padding-bottom: 4rem;
+}
+
+@media (min-width: 48em) {
+    .content {
+        max-width: 38rem;
+        margin-left: 14rem;
+        margin-right: 2rem;
+    }
+
+    .paper-container{
+        flex-direction: row !important;
+    }
+    .paper-container>*{
+        text-align: left!important;
+    }
+    .paper-container .img-resize {
+        width: calc(20vw)!important; /*small size*/
+        flex: 1 !important;
+    }
+    .paper-container .img-resize img {
+        max-width: 255px !important;
+    }
+    .paper-container .info-resize{
+        flex: 3 !important;
+        padding: 0.1rem 1rem !important;
+    }
+
+}
+
+@media (min-width: 64em) {
+    .content {
+        margin-left: 18rem;
+        margin-right: 4rem;
+    }
+
+}
+
+/*Susan for personal webpage*/
+.img-resize {
+    width: calc(60vw); /*large size*/
+}
+/* When in small width size < 48em*/
+.paper-container{
+    display: flex !important;
+    flex-direction: column;
+    align-items: center;
+}
+.paper-container>*{
+    text-align: center;
+    padding: 0.1rem;
+}
+.paper-container .img-resize{
+    flex: auto;
+}
+.paper-container .img-resize img {
+    max-width: 512px;
+}
+.paper-container .info-resize{
+    flex: auto;
+    padding: 1em 0;
+}
+
+.is-disabled {
+    color: gray;
+    cursor: not-allowed;
+    pointer-events: none;
+    opacity: 0.5;
+    text-decoration: none;
+}
+.abstract-text {
+    display: block;
+    text-align: justify;
+}
+.result-text {
+    font-size: 20px;
+}
+.citation-code {
+    padding: 16px;
+    background: #e8e8e7;
+    border-radius: 10px;
+}
+/*Susan: project page slider*/
+
+/*Buttons for active image/video display*/
+.btn-img {
+    padding: 0 1%;
+    width: 100%;
+}
+.button-row {
+    /*display: inline-block;*/
+    display: flex;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    align-self: center;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.display-btn {
+    display: inline-block;
+    outline: 0;
+    text-align: center;
+    vertical-align: middle;
+    overflow: hidden;
+    text-decoration: none;
+    cursor: pointer;
+
+    white-space: nowrap;
+    background: none;
+    padding: 8px!important;
+    font-size: medium;
+    border-radius: 6px;
+    margin: 2px 5px;
+    min-width: 15%;
+}
+.display-btn:active, .display-btn.active {
+    background-color: #d9e8ec;
+}
+.display-btn:hover, .display-btn:focus {
+    color: #33a6cc !important;
+    border-color: #33a6cc !important;
+    background: none !important;
+}
+
+/*Susan: carousel with dots*/
+.results-carousel {
+    overflow: hidden;
+}
+.results-carousel .carousel-item {
+    margin: 5px;
+    overflow: hidden;
+    border: 1px solid #bbb;
+    border-radius: 10px;
+    padding: 0;
+    font-size: 0;
+}
+
+ul.slides {
+    display: block;
+    position: relative;
+    /*height: 600px;*/
+    margin: 0;
+    padding: 0;
+    /*overflow: hidden;*/
+    list-style: none;
+}
+
+.slides * {
+    user-select: none;
+    -ms-user-select: none;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
+}
+
+ul.slides input {
+    display: none;
+}
+
+ul.slides2 input {
+    display: none;
+}
+
+
+.slide-container {
+    display: block;
+}
+
+.slide-image {
+    display: none;
+    /*display: block;*/
+    /*position: absolute;*/
+    width: 100%;
+    height: 100%;
+    /*top: 0;*/
+    /*opacity: 0;*/
+    transition: all .7s ease-in-out;
+}
+
+.slide-image img {
+    width: auto;
+    padding: 0 42px;
+    padding-bottom: 30px;
+    width: 90%;
+    height: 90%;
+}
+
+.slide-image video {
+    width: auto;
+    padding: 0 42px;
+    /*padding-bottom: 40px;*/
+    width: 100%;
+    height: 100%;
+}
+
+.slide-image.video iframe{
+    padding: 0 42px;
+    z-index: 999;
+}
+
+.carousel-controls {
+    position: absolute;
+    /*top: calc(50% - 30px); !*carousel-dots with height=20px(height)+10px(margin)*!*/
+    top: calc(50% - 10px);
+    left: 0;
+    right: 0;
+    z-index: 0;
+    /*font-size: 100px;*/
+    /*line-height: 600px;*/
+    color: #3B7EA1;
+}
+
+.carousel-controls label {
+    display: none;
+    position: absolute;
+    padding: 0 1px;
+    opacity: 0.5;
+    transition: opacity .2s;
+    cursor: pointer;
+}
+.carousel-controls span{
+    font-size: 40px;
+}
+.slide-image:hover {
+    opacity: 0.3;
+}
+/*+ .carousel-controls label*/
+.carousel-controls label:hover, .carousel-controls label:active {
+    opacity: 1;
+}
+
+.carousel-controls .prev-slide {
+    width: 49%;
+    text-align: left;
+    left: 0;
+}
+
+.carousel-controls .next-slide {
+    width: 49%;
+    text-align: right;
+    right: 0;
+}
+
+.carousel-dots {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 999;
+    text-align: center;
+}
+
+.carousel-dots .carousel-dot {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: #3B7EA1;
+    opacity: 0.5;
+    margin: 10px;
+}
+
+.carousel-btns {
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.carousel-btn {
+    display: inline-block;
+    opacity: 0.5;
+    background: none;
+    font-size: medium;
+    padding: 5px;
+    border: 2px solid #3B7EA1;
+    color: #3B7EA1;
+    border-radius: 5px;
+    margin: 5px;
+}
+.carousel-btn:hover, .carousel-btn:focus{
+    color: #33a6cc;
+    border-color: #33a6cc;
+    opacity: 1;
+}
+.carousel-btn:active,.carousel-btn.active {
+    border-color: #007299;
+    color: #007299;
+    box-shadow: none;
+    opacity: 1;
+}
+.carousel-dot:hover, .carousel-dot:active, .carousel-dot.active {
+    opacity: 1;
+}
+
+input:checked + .slide-container .slide-image{
+    display: block;
+    opacity: 1;
+    transform: scale(1);
+    transition: opacity 1s ease-in-out;
+}
+
+input:checked + .slide-container .carousel-controls label {
+    display: block;
+}
+
+
+input#res1:checked ~ .carousel-dots label#img-dot-0,
+input#res2:checked ~ .carousel-dots label#img-dot-1,
+input#res3:checked ~ .carousel-dots label#img-dot-2,
+input#res4:checked ~ .carousel-dots label#img-dot-3,
+input#res5:checked ~ .carousel-dots label#img-dot-4,
+{
+    opacity: 1;
+}
+
+input:checked + .slide-container .nav label { display: block; }
+
+.how-it-work-style details {
+    padding: 10px;
+    /*background-color: #efefef;*/
+    /*border-radius: 5px;*/
+}
+.how-it-work-style summary{
+    font-size: medium;
+    font-weight: 600;
+}
+
+.how-it-work-style .detail-content {
+    border-radius: 5px;
+    border: solid 1px #aaa;
+    padding: 10px;
+    margin-top: 5px;
+    background-color: #fff;
+}
+
+/* # The Sliding Summary # */
+details {
+    overflow: hidden;
+}
+details summary {
+    position: relative;
+    z-index: 10;
+}
+@keyframes details-show {
+    from {
+        opacity: 0;
+    }
+}
+details > *:not(summary) {
+    animation: details-show 1 ease-in-out;
+    position: relative;
+    z-index: 1;
+    transition: all 1s ease-in-out;
+    color: transparent;
+    background: #e5feff;
+    overflow: hidden;
+}
+
+details[open] > *:not(summary){
+    color: inherit;
+}

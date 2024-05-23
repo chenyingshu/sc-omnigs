@@ -1,0 +1,287 @@
+<!DOCTYPE HTML>
+<html><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>SC-OmniGS: Self-Calibrating Omnidirectional Gaussian Splatting</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<script src="js/fontawesone.6.5.1.js" type="text/javascript"></script>
+<link rel="stylesheet" type="text/css" href="css/w3.css">
+<link rel="stylesheet" type="text/css" href="css/main.css">
+<script src="js/jquery.min.3.7.1.js" type="text/javascript"></script>
+<script src="js/main.js" type="text/javascript"></script>
+
+<link href="assets/logo.png" rel="icon">
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-178921838-1', 'auto');
+	ga('send', 'pageview');
+}
+</script>
+
+<body class="w3-content" style="max-width:1000px">
+
+	<div class="w3-container hj-padding" >
+		<div>
+			<h1 class="w3-center w3-margin-top" id="sc-omnigs">SC-OmniGS:<br> Self-Calibrating Omnidirectional Gaussian Splatting</h1>
+			<div class="w3-center">
+				<p>
+					<em><a href="https://huajianup.github.io" style="border-bottom: 1px dotted black;">Huajian Huang<sup>*1</sup></a></em>,
+					<em><a href="https://chenyingshu.github.io" style="border-bottom: 1px dotted black;">Yingshu Chen<sup>*1</sup></a></em>,
+					Longwei Li<sup>2</sup>,
+					Hui Cheng<sup>2</sup>,
+					Tristan Braud<sup>1</sup>,
+					Yajie Zhao<sup>3</sup> and
+					<em><a href="http://www.saikit.org" style="border-bottom: 1px dotted black;">Sai-Kit Yeung<sup>1</sup></a></em>
+				</p>
+				<p class="w3-text-dark-gray"><sup>1</sup>The Hong Kong University of Science and Technology, <br>
+					<sup>2</sup>Sun Yat-sen University,
+					<sup>3</sup>University of Southern California<br>
+					<em>* equal contribution</em></p>
+
+			</div>
+			<div class="w3-center"> 2024 </div>
+			<div class="link w3-center pub">
+	            <a class="btn btn-primary outline big-outline" href="#" target="_blank"><i class="fa fa-file-pdf-o" style="margin-right: 5px"></i>Paper (coming)</a>
+				<a class="btn btn-primary outline big-outline" href="#" target="_blank"><i class="fa-brands fa-github" style="margin-right: 5px"></i>Code (coming)</a>
+	        </div>
+            <hr>
+	    </div>
+
+		<div class="hj-padding">
+			<div class="video-container">
+                <h6 class="w3-center"><em>TL;DR</em> SC-OmniGS jointly calibrates omnidirectional camera intrinsics and extrinsics to recover fine-grained 3D Gaussians. </h6>
+				<video autoplay loop muted playsinline preload="metadata" controls  class="video-item" poster="assets/training_process_cover.jpg">
+					<source data-src="assets/training_process.mp4" type="video/mp4" src="assets/training_process.mp4">
+				</video>
+				<h6 class="w3-center result-text">Training process. Self-calibrating cameras with no pose prior.</h6>
+			</div>
+		</div>
+		<div class="hj-padding" >
+			<div class="w3-container plate" id="abstract">
+				<h3>Abstract</h3>
+			</div>
+			<h6 class="abstract-text">
+				360-degree cameras streamline data collection for radiance field 3D reconstruction by capturing comprehensive scene data. However, traditional radiance field methods do not address the specific challenges inherent to 360-degree images.
+				We present SC-OmniGS, a novel self-calibrating omnidirectional Gaussian splatting system for fast and accurate omnidirectional radiance field reconstruction using 360-degree images. Rather than converting 360-degree images to cube maps and performing perspective image calibration, we treat 360-degree images as a whole sphere and derive a mathematical framework that enables direct omnidirectional camera pose calibration accompanied by 3D Gaussians optimization.  Furthermore, we introduce a differentiable omnidirectional camera model in order to rectify the distortion of real-world data for performance enhancement.
+				Overall, the omnidirectional camera intrinsic model, extrinsic poses, and 3D Gaussians are jointly optimized by minimizing weighted spherical photometric loss.
+				Extensive experiments have demonstrated that our proposed SC-OmniGS is able to recover a high-quality radiance field from noisy camera poses or even no pose prior in challenging scenarios characterized by wide baselines and non-object-centric configurations.
+				The noticeable performance gain in the real-world dataset captured by consumer-grade omnidirectional cameras verifies the effectiveness of our general omnidirectional camera model in reducing the distortion of 360-degree images.
+			</h6>
+		</div>
+
+		<div class="hj-padding" >
+		    <div class="w3-container plate" id="results">
+		    	<h3>Results</h3>
+		    </div>
+			<div class="w3-padding-16">
+				<h6 class="w3-center result-text">Reconstruction Comparisons</h6>
+
+				<div id="results-demo" class="results-carousel">
+					<ul class="slides">
+						<input type="radio" id="demo-res0" checked name="demo-group" onclick="_change_active_dot(0)" />
+						<li class="slide-container">
+							<div class="slide-image video">
+								<video muted playsinline preload="metadata" controls  class="video-item" poster="">
+									<source data-src="assets/comparison_classroom.mp4" type="video/mp4" src="assets/comparison_classroom.mp4">
+								</video>
+							</div>
+							<div class="carousel-controls">
+								<label for="demo-res2" class="prev-slide">
+									<span><i class="fa-solid fa-circle-chevron-left"></i></span>
+								</label>
+								<label for="demo-res1" class="next-slide">
+									<span><i class="fa-solid fa-circle-chevron-right"></i></span>
+								</label>
+							</div>
+						</li>
+
+						<input type="radio" id="demo-res1" name="demo-group"  onclick="_change_active_dot(1)"/>
+						<li class="slide-container">
+							<div class="slide-image video">
+                                <video muted playsinline preload="metadata" controls  class="video-item" poster="">
+                                    <source data-src="assets/comparison_center.mp4" type="video/mp4" src="assets/comparison_center.mp4">
+                                </video>
+							</div>
+							<div class="carousel-controls">
+								<label for="demo-res0" class="prev-slide">
+									<span><i class="fa-solid fa-circle-chevron-left"></i></span>
+								</label>
+								<label for="demo-res2" class="next-slide">
+									<span><i class="fa-solid fa-circle-chevron-right"></i></span>
+								</label>
+							</div>
+						</li>
+
+
+						<input type="radio" id="demo-res2" name="demo-group" onclick="_change_active_dot(2)"/>
+						<li class="slide-container">
+							<div class="slide-image video">
+                                <video muted playsinline preload="metadata" controls  class="video-item" poster="">
+                                    <source data-src="assets/comparison_lab.mp4" type="video/mp4" src="assets/comparison_lab.mp4">
+                                </video>
+							</div>
+							<div class="carousel-controls">
+								<label for="demo-res1" class="prev-slide">
+									<span><i class="fa-solid fa-circle-chevron-left"></i></span>
+								</label>
+								<label for="demo-res3" class="next-slide">
+									<span><i class="fa-solid fa-circle-chevron-right"></i></span>
+								</label>
+							</div>
+						</li>
+
+                        <input type="radio" id="demo-res3" name="demo-group" onclick="_change_active_dot(3)"/>
+                        <li class="slide-container">
+                            <div class="slide-image video">
+                                <video muted playsinline preload="metadata" controls  class="video-item" poster="">
+                                    <source data-src="assets/comparison_innovation.mp4" type="video/mp4" src="assets/comparison_innovation.mp4">
+                                </video>
+                            </div>
+                            <div class="carousel-controls">
+                                <label for="demo-res2" class="prev-slide">
+                                    <span><i class="fa-solid fa-circle-chevron-left"></i></span>
+                                </label>
+                                <label for="demo-res0" class="next-slide">
+                                    <span><i class="fa-solid fa-circle-chevron-right"></i></span>
+                                </label>
+                            </div>
+                        </li>
+					</ul>
+					<div class="carousel-btns">
+						<label for="demo-res0" class="carousel-btn active" id="demo-btn-0">
+                            <i class="fa-solid fa-chalkboard-user"></i><br>Classroom</label>
+						<label for="demo-res1" class="carousel-btn" id="demo-btn-1">
+                            <i class="fa-solid fa-door-open"></i><br>Center</label>
+<!--                        <i class="fa-solid fa-house"></i></i>-->
+                        <label for="demo-res2" class="carousel-btn" id="demo-btn-2">
+                            <i class="fa-solid fa-flask-vial"></i><br>Lab</label>
+                        <label for="demo-res3" class="carousel-btn" id="demo-btn-3">
+                            <i class="fa-solid fa-vihara"></i><br>Innovation</label>
+					</div>
+				</div>
+
+<!--				<br>-->
+<!--				<h6 class="w3-center result-text">Roaming comparisons</h6>-->
+<!--				<div id="results-comparison" class="results-carousel">-->
+<!--					<ul class="slides">-->
+<!--						<input type="radio" id="compare-res0" checked name="compare-group" onclick="_change_active_comp_dot(0)" />-->
+<!--						<li class="slide-container">-->
+<!--							<div class="slide-image video">-->
+<!--								<iframe src="https://www.youtube.com/embed/F5P_O4vGRDg" allowfullscreen title="vsNeRF LAB"></iframe>-->
+<!--							</div>-->
+<!--							<div class="carousel-controls">-->
+<!--								<label for="compare-res4" class="prev-slide">-->
+<!--									<span><i class="fa-solid fa-circle-chevron-left"></i></span>-->
+<!--								</label>-->
+<!--								<label for="compare-res1" class="next-slide">-->
+<!--									<span><i class="fa-solid fa-circle-chevron-right"></i></span>-->
+<!--								</label>-->
+<!--							</div>-->
+<!--						</li>-->
+
+<!--						<input type="radio" id="compare-res1"  name="compare-group" onclick="_change_active_comp_dot(1)"/>-->
+<!--						<li class="slide-container">-->
+<!--							<div class="slide-image video">-->
+<!--								<iframe src="https://www.youtube.com/embed/8ZXEx2lTKfo" allowfullscreen title="vsMipNeRF CANTEEN"></iframe>-->
+<!--							</div>-->
+<!--							<div class="carousel-controls">-->
+<!--								<label for="compare-res0" class="prev-slide">-->
+<!--									<span><i class="fa-solid fa-circle-chevron-left"></i></span>-->
+<!--								</label>-->
+<!--								<label for="compare-res2" class="next-slide">-->
+<!--									<span><i class="fa-solid fa-circle-chevron-right"></i></span>-->
+<!--								</label>-->
+<!--							</div>-->
+<!--						</li>-->
+
+
+<!--						<input type="radio" id="compare-res2"  name="compare-group" onclick="_change_active_comp_dot(2)"/>-->
+<!--						<li class="slide-container">-->
+<!--							<div class="slide-image video">-->
+<!--								<iframe src="https://www.youtube.com/embed/MHKAUGwH0e8" allowfullscreen title="vsKiloNeRF BASE"></iframe>-->
+<!--							</div>-->
+<!--							<div class="carousel-controls">-->
+<!--								<label for="compare-res1" class="prev-slide">-->
+<!--									<span><i class="fa-solid fa-circle-chevron-left"></i></span>-->
+<!--								</label>-->
+<!--								<label for="compare-res3" class="next-slide">-->
+<!--									<span><i class="fa-solid fa-circle-chevron-right"></i></span>-->
+<!--								</label>-->
+<!--							</div>-->
+<!--						</li>-->
+
+<!--						<input type="radio" id="compare-res3"  name="compare-group" onclick="_change_active_comp_dot(3)"/>-->
+<!--						<li class="slide-container">-->
+<!--							<div class="slide-image video">-->
+<!--								<iframe src="https://www.youtube.com/embed/Jni3J0ayZtA" allowfullscreen title="vsColmap INNO"></iframe>-->
+<!--							</div>-->
+<!--							<div class="carousel-controls">-->
+<!--								<label for="compare-res2" class="prev-slide">-->
+<!--									<span><i class="fa-solid fa-circle-chevron-left"></i></span>-->
+<!--								</label>-->
+<!--								<label for="compare-res4" class="next-slide">-->
+<!--									<span><i class="fa-solid fa-circle-chevron-right"></i></span>-->
+<!--								</label>-->
+<!--							</div>-->
+<!--						</li>-->
+
+<!--						<input type="radio" id="compare-res4"  name="compare-group" onclick="_change_active_comp_dot(4)"/>-->
+<!--						<li class="slide-container">-->
+<!--							<div class="slide-image video">-->
+<!--								<iframe src="https://www.youtube.com/embed/zda_ubXsFpk" allowfullscreen title="vsTeleport LAB"></iframe>-->
+<!--							</div>-->
+<!--							<div class="carousel-controls">-->
+<!--								<label for="compare-res3" class="prev-slide">-->
+<!--									<span><i class="fa-solid fa-circle-chevron-left"></i></span>-->
+<!--								</label>-->
+<!--								<label for="compare-res0" class="next-slide">-->
+<!--									<span><i class="fa-solid fa-circle-chevron-right"></i></span>-->
+<!--								</label>-->
+<!--							</div>-->
+<!--						</li>-->
+<!--					</ul>-->
+<!--					<div class="carousel-btns">-->
+<!--						<label for="compare-res0" class="carousel-btn active" id="compare-btn-0">-->
+<!--							<i class="fa-solid fa-flask-vial"></i><br>NeRF</label>-->
+<!--						<label for="compare-res1" class="carousel-btn" id="compare-btn-1">-->
+<!--							<i class="fa-solid fa-utensils"></i><br>MipNeRF</label>-->
+<!--						<label for="compare-res2" class="carousel-btn" id="compare-btn-2">-->
+<!--							<i class="fa-solid fa-school"></i> <br> KiloNeRF</label>-->
+<!--						<label for="compare-res3" class="carousel-btn" id="compare-btn-3">-->
+<!--							<i class="fa-solid fa-city"></i><br> COLMAP</label>-->
+<!--						<label for="compare-res4" class="carousel-btn" id="compare-btn-4">-->
+<!--							<i class="fa-solid fa-flask"></i><br>Teleport</label>-->
+<!--					</div>-->
+<!--				</div>-->
+<!--			</div>-->
+
+		</div>
+
+
+	<div class="w3-container hj-padding"  id="citation">
+		<h3>Citation</h3>
+		<pre class="citation-code"><code><span>@misc</span>{huang20224scomnigs,
+    title = {SC-OmniGS: Self-Calibrating Omnidirectional Gaussian Splatting},
+    author = {Huang, Huajian and Chen, Yingshu and Li, Longwei and Cheng, Hui and Braud, Tristan and Zhao, Yajie and Yeung, Sai-Kit},
+    year = {2024}
+}</code></pre>
+
+	</div>
+
+	<div class="w3-container hj-padding"  id="related-work">
+		<h3>Other Works</h3>
+		<ul>
+            <li><a href="https://huajianup.github.io/research/360Roam/">360Roam: Real-Time Indoor Roaming Using Geometry-Aware 360ᵒ Radiance Fields (2022)</a></li>
+            <li><a href="https://arxiv.org/abs/2404.03202">OmniGS: Omnidirectional Gaussian Splatting for Fast Radiance Field Reconstruction using Omnidirectional Images (2024)</a></li>
+		</ul>
+	</div>
+</body>
+</html>
