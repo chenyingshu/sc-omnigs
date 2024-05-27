@@ -11,6 +11,8 @@
 <link rel="stylesheet" type="text/css" href="css/main.css">
 <script src="js/jquery.min.3.7.1.js" type="text/javascript"></script>
 <script src="js/main.js" type="text/javascript"></script>
+<link rel="stylesheet" type="text/css" href="css/dics.css">
+<script src="js/dics.js" type="text/javascript"></script>
 
 <link href="assets/logo.png" rel="icon">
 
@@ -168,100 +170,78 @@ if (!doNotTrack) {
 					</div>
 				</div>
 
-<!--				<br>-->
-<!--				<h6 class="w3-center result-text">Roaming comparisons</h6>-->
-<!--				<div id="results-comparison" class="results-carousel">-->
-<!--					<ul class="slides">-->
-<!--						<input type="radio" id="compare-res0" checked name="compare-group" onclick="_change_active_comp_dot(0)" />-->
-<!--						<li class="slide-container">-->
-<!--							<div class="slide-image video">-->
-<!--								<iframe src="https://www.youtube.com/embed/F5P_O4vGRDg" allowfullscreen title="vsNeRF LAB"></iframe>-->
-<!--							</div>-->
-<!--							<div class="carousel-controls">-->
-<!--								<label for="compare-res4" class="prev-slide">-->
-<!--									<span><i class="fa-solid fa-circle-chevron-left"></i></span>-->
-<!--								</label>-->
-<!--								<label for="compare-res1" class="next-slide">-->
-<!--									<span><i class="fa-solid fa-circle-chevron-right"></i></span>-->
-<!--								</label>-->
-<!--							</div>-->
-<!--						</li>-->
-
-<!--						<input type="radio" id="compare-res1"  name="compare-group" onclick="_change_active_comp_dot(1)"/>-->
-<!--						<li class="slide-container">-->
-<!--							<div class="slide-image video">-->
-<!--								<iframe src="https://www.youtube.com/embed/8ZXEx2lTKfo" allowfullscreen title="vsMipNeRF CANTEEN"></iframe>-->
-<!--							</div>-->
-<!--							<div class="carousel-controls">-->
-<!--								<label for="compare-res0" class="prev-slide">-->
-<!--									<span><i class="fa-solid fa-circle-chevron-left"></i></span>-->
-<!--								</label>-->
-<!--								<label for="compare-res2" class="next-slide">-->
-<!--									<span><i class="fa-solid fa-circle-chevron-right"></i></span>-->
-<!--								</label>-->
-<!--							</div>-->
-<!--						</li>-->
+				<br>
+				<h6 class="w3-center result-text">Panorama comparisons</h6>
 
 
-<!--						<input type="radio" id="compare-res2"  name="compare-group" onclick="_change_active_comp_dot(2)"/>-->
-<!--						<li class="slide-container">-->
-<!--							<div class="slide-image video">-->
-<!--								<iframe src="https://www.youtube.com/embed/MHKAUGwH0e8" allowfullscreen title="vsKiloNeRF BASE"></iframe>-->
-<!--							</div>-->
-<!--							<div class="carousel-controls">-->
-<!--								<label for="compare-res1" class="prev-slide">-->
-<!--									<span><i class="fa-solid fa-circle-chevron-left"></i></span>-->
-<!--								</label>-->
-<!--								<label for="compare-res3" class="next-slide">-->
-<!--									<span><i class="fa-solid fa-circle-chevron-right"></i></span>-->
-<!--								</label>-->
-<!--							</div>-->
-<!--						</li>-->
+					<div class="b-dics  b-dics0" style="width: 100%" id="compare-res0">
+						<img src="assets/comp/gt_bar_1_0005.jpg" alt="Ground truth" />
+						<img src="assets/comp/barf_bar_1_0005.jpg" alt="BARF" />
+						<img src="assets/comp/l2g_bar_1_0005.jpg" alt="L2G-NeRF" />
+						<img src="assets/comp/camp_bar_1_0005.jpg" alt="CamP" />
+						<img src="assets/comp/ours_bar_1_0005.jpg" alt="SC-OmniGS" />
+					</div>
+					<div class="b-dics  b-dics1" style="width: 100%" id="compare-res1">
+						<img src="assets/comp/gt_base_1_0014.jpg" alt="Ground truth" />
+						<img src="assets/comp/barf_base_1_0014.jpg" alt="BARF" />
+						<img src="assets/comp/l2g_base_1_0014.jpg" alt="L2G-NeRF" />
+						<img src="assets/comp/camp_base_1_0014.jpg" alt="CamP" />
+						<img src="assets/comp/ours_base_1_0014.jpg" alt="SC-OmniGS" />
+					</div>
+					<div class="b-dics b-dics2" style="width: 100%" id="compare-res2">
+						<img src="assets/comp/gt_cafe_1_0020.jpg" alt="Ground truth" />
+						<img src="assets/comp/barf_cafe_1_0020.jpg" alt="BARF" />
+						<img src="assets/comp/l2g_cafe_1_0020.jpg" alt="L2G-NeRF" />
+						<img src="assets/comp/camp_cafe_1_0020.jpg" alt="CamP" />
+						<img src="assets/comp/ours_cafe_1_0020.jpg" alt="SC-OmniGS" />
+					</div>
+					<div class="b-dics b-dics3" style="width: 100%" id="compare-res3">
+						<img src="assets/comp/gt_canteen_1_0010.jpg" alt="Ground truth" />
+						<img src="assets/comp/barf_canteen_1_0010.jpg" alt="BARF" />
+						<img src="assets/comp/l2g_canteen_1_0010.jpg" alt="L2G-NeRF" />
+						<img src="assets/comp/camp_canteen_1_0010.jpg" alt="CamP" />
+						<img src="assets/comp/ours_canteen_1_0010.jpg" alt="SC-OmniGS" />
+					</div>
+					<div class="b-dics b-dics4" style="width: 100%" id="compare-res4">
+						<img src="assets/comp/gt_inno_1_0042.jpg" alt="Ground truth" />
+						<img src="assets/comp/barf_inno_1_0042.jpg" alt="BARF" />
+						<img src="assets/comp/l2g_inno_1_0042.jpg" alt="L2G-NeRF" />
+						<img src="assets/comp/camp_inno_1_0042.jpg" alt="CamP" />
+						<img src="assets/comp/ours_inno_1_0042.jpg" alt="SC-OmniGS" />
+					</div>
+					<div class="b-dics b-dics5" style="width: 100%" id="compare-res5">
+						<img src="assets/comp/gt_barber_78.jpg" alt="Ground truth" />
+						<img src="assets/comp/barf_barber_78.jpg" alt="BARF" />
+						<img src="assets/comp/l2g_barber_78.jpg" alt="L2G-NeRF" />
+						<img src="assets/comp/camp_barber_78.jpg" alt="CamP" />
+						<img src="assets/comp/ours_barber_78.jpg" alt="SC-OmniGS" />
+					</div>
+					<div class="b-dics  b-dics6" style="width: 100%" id="compare-res6">
+						<img src="assets/comp/gt_class_22.jpg" alt="Ground truth" />
+						<img src="assets/comp/barf_class_22.jpg" alt="BARF" />
+						<img src="assets/comp/l2g_class_22.jpg" alt="L2G-NeRF" />
+						<img src="assets/comp/camp_class_22.jpg" alt="CamP" />
+						<img src="assets/comp/ours_class_22.jpg" alt="SC-OmniGS" />
+					</div>
 
-<!--						<input type="radio" id="compare-res3"  name="compare-group" onclick="_change_active_comp_dot(3)"/>-->
-<!--						<li class="slide-container">-->
-<!--							<div class="slide-image video">-->
-<!--								<iframe src="https://www.youtube.com/embed/Jni3J0ayZtA" allowfullscreen title="vsColmap INNO"></iframe>-->
-<!--							</div>-->
-<!--							<div class="carousel-controls">-->
-<!--								<label for="compare-res2" class="prev-slide">-->
-<!--									<span><i class="fa-solid fa-circle-chevron-left"></i></span>-->
-<!--								</label>-->
-<!--								<label for="compare-res4" class="next-slide">-->
-<!--									<span><i class="fa-solid fa-circle-chevron-right"></i></span>-->
-<!--								</label>-->
-<!--							</div>-->
-<!--						</li>-->
-
-<!--						<input type="radio" id="compare-res4"  name="compare-group" onclick="_change_active_comp_dot(4)"/>-->
-<!--						<li class="slide-container">-->
-<!--							<div class="slide-image video">-->
-<!--								<iframe src="https://www.youtube.com/embed/zda_ubXsFpk" allowfullscreen title="vsTeleport LAB"></iframe>-->
-<!--							</div>-->
-<!--							<div class="carousel-controls">-->
-<!--								<label for="compare-res3" class="prev-slide">-->
-<!--									<span><i class="fa-solid fa-circle-chevron-left"></i></span>-->
-<!--								</label>-->
-<!--								<label for="compare-res0" class="next-slide">-->
-<!--									<span><i class="fa-solid fa-circle-chevron-right"></i></span>-->
-<!--								</label>-->
-<!--							</div>-->
-<!--						</li>-->
-<!--					</ul>-->
-<!--					<div class="carousel-btns">-->
-<!--						<label for="compare-res0" class="carousel-btn active" id="compare-btn-0">-->
-<!--							<i class="fa-solid fa-flask-vial"></i><br>NeRF</label>-->
-<!--						<label for="compare-res1" class="carousel-btn" id="compare-btn-1">-->
-<!--							<i class="fa-solid fa-utensils"></i><br>MipNeRF</label>-->
-<!--						<label for="compare-res2" class="carousel-btn" id="compare-btn-2">-->
-<!--							<i class="fa-solid fa-school"></i> <br> KiloNeRF</label>-->
-<!--						<label for="compare-res3" class="carousel-btn" id="compare-btn-3">-->
-<!--							<i class="fa-solid fa-city"></i><br> COLMAP</label>-->
-<!--						<label for="compare-res4" class="carousel-btn" id="compare-btn-4">-->
-<!--							<i class="fa-solid fa-flask"></i><br>Teleport</label>-->
-<!--					</div>-->
-<!--				</div>-->
-<!--			</div>-->
+					<div class="carousel-btns">
+						<label for="compare-res0" class="carousel-btn active" id="compare-btn-0">
+							<i class="fa-solid fa-martini-glass"></i><br>Bar</label>
+						<label for="compare-res1" class="carousel-btn" id="compare-btn-1">
+							<i class="fa-solid fa-school"></i><br>Base</label>
+						<label for="compare-res2" class="carousel-btn" id="compare-btn-2">
+							<i class="fa-solid fa-mug-hot"></i> <br> Cafe</label>
+						<label for="compare-res3" class="carousel-btn" id="compare-btn-3">
+							<i class="fa-solid fa-utensils"></i> <br> Canteen</label>
+						<label for="compare-res4" class="carousel-btn" id="compare-btn-4">
+							<i class="fa-solid fa-vihara"></i> <br> Innovation</label>
+						<label for="compare-res5" class="carousel-btn" id="compare-btn-5">
+							<i class="fa-solid fa-scissors"></i><br> Barbershop</label>
+						<label for="compare-res6" class="carousel-btn" id="compare-btn-6">
+							<i class="fa-solid fa-chalkboard-user"></i><br>Classroom</label>
+					</div>
+				</div>
+			</div>
 
 		</div>
 
