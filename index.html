@@ -77,6 +77,38 @@ if (!doNotTrack) {
 				Extensive experiments have demonstrated that our proposed SC-OmniGS is able to recover a high-quality radiance field from noisy camera poses or even no pose prior in challenging scenarios characterized by wide baselines and non-object-centric configurations.
 				The noticeable performance gain in the real-world dataset captured by consumer-grade omnidirectional cameras verifies the effectiveness of our general omnidirectional camera model in reducing the distortion of 360-degree images.
 			</h6>
+
+			<img src="assets/teaser.jpg" >
+		</div>
+
+		<div class="hj-padding" >
+			<div class="w3-container plate" id="how-it-works">
+				<h3>How it works</h3>
+			</div>
+			<div class="how-it-work-style">
+				<details>
+					<summary>1. Overview of SC-OmniGS Optimization Flow</summary>
+					<div class="detail-content">
+						SC-OmniGS is a self-calibrating framework for omnidirectional radiance field reconstruction.
+						It takes multiple 360-degree images without pose information or with noisy pose estimations as input to recover a fine-grained omnidirectional radiance field.
+						We adopt 3D-GS as the radiance field representation to achieve fast reconstruction and real-time novel view rendering.
+						Similar to 3D-GS, we initialize the 3D Gaussians from coarse points input obtained from SfM estimation or an omnidirectional depth map.
+						We then <b>jointly optimize 3D Gaussians, the omnidirectional camera model, and poses</b>.
+						<br>
+						<img src="assets/overview.jpg" class="w3-padding-16" >
+					</div>
+				</details>
+				<details>
+					<summary>2. Differentiable Omnidirectional Camera Model</summary>
+					<div class="detail-content">
+						The generic omnidirectional camera model comprises a frozen unit
+						sphere and trainable focal length coefficient and angle distortion coefficients.
+						It learns complex distorting patterns through differentiable optimization.
+						<br>
+						<img src="assets/camera_model.jpg">
+					</div>
+				</details>
+			</div>
 		</div>
 
 		<div class="hj-padding" >
