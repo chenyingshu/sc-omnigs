@@ -476,7 +476,16 @@ a.sidebar-nav-item:focus {
 
 }
 
-/*Susan for personal webpage*/
+/*Susan for webpage*/
+.btn-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.btn-link .btn{
+    margin: 1px;
+}
 .img-resize {
     width: calc(60vw); /*large size*/
 }
